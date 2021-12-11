@@ -1,6 +1,6 @@
 # midi-video
 **[ 🛠 Working ]**  
-Output video from midi files.
+Output videos from midi files on the site.
 
 
 ### 📚 Doc
@@ -8,7 +8,7 @@ Output video from midi files.
 
 
 ### 💡 Idea
-I often see videos with midi notes displayed.
+I sometimes see videos of notes being visualized on SNS.
 
 > <a href="https://twitter.com/Symmez/status/1385926558347526145"><img width="400px" src="https://user-images.githubusercontent.com/50014309/145682238-369d0c16-7022-462e-afe3-e6549202bb3d.png"></img></a>  
 > https://twitter.com/Symmez/status/1385926558347526145
@@ -23,4 +23,4 @@ I wanted to make a site where you can make videos **quickly** and **easily** wit
 ### 🗃 Library
 - [Tonejs/Midi](https://github.com/Tonejs/Midi)
 - [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)  
-*In gratitude to our predecessors...*
+*Thank you!*
