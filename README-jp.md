@@ -26,7 +26,13 @@ midiファイルから動画を出力するWebサイト
 - [ ] 各種SNSに合わせた動画出力
 
 
-### 🗃 ライブラリ
+### 🤝 感謝！
+🗃 ライブラリ
 - [Tonejs/Midi](https://github.com/Tonejs/Midi)
 - [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)  
-ありがとうございました！
+- [processing/p5.js](https://github.com/processing/p5.js)
+
+
+🧪 参考
+- [tetunori/p5MovRec](https://github.com/tetunori/p5MovRec)
+
