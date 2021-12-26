@@ -4,7 +4,7 @@ Output videos from midi files on the site.
 
 
 ### 📚 Doc
-[README-JP](./README-jp.md)
+[README-JP](./README.md)
 
 
 ### 💡 Idea
