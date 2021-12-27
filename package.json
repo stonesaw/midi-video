@@ -10,6 +10,7 @@
   "dependencies": {
     "bulma": "^0.9.3",
     "core-js": "^3.6.5",
+    "p5": "^1.4.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
