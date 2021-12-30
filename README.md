@@ -19,6 +19,12 @@ midiファイルから動画を出力するWebサイト
 かっこいい動画が**サクッと**作れる**Webサイト**を作りたいと思いました！
 
 
+### 💭 イメージ
+
+<img width="49%" src="./screenshot/01.svg" /> <img width="49%" src="./screenshot/02.svg" />
+<img width="49%" src="./screenshot/03.svg" />
+
+
 ### ✨ 機能
 - [ ] MIDIノートの表示
 - [ ] 音声波形の表示
