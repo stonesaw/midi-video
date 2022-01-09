@@ -5,7 +5,6 @@
      :drag.sync="drag"
      @drop="file = $event"
     >
-      <!-- <AppMIDILoader /> -->
       <AppNavbar @files-upload='filesUpload' />
       <AppCanvas :files-data="files" />
 
@@ -28,7 +27,6 @@
 <script>
 import AppNavbar from './components/AppNavbar.vue'
 import AppCanvas from './components/AppCanvas.vue'
-// import AppMIDILoader from './components/AppMIDILoader.vue'
 import AppFileDropArea from './components/AppFileDropArea.vue'
 
 export default {
@@ -36,7 +34,6 @@ export default {
   components: {
     AppNavbar,
     AppCanvas,
-    // AppMIDILoader,
     AppFileDropArea
   },
 
