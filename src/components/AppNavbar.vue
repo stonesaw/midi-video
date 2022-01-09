@@ -71,7 +71,7 @@
 export default {
   data() {
     return {
-      filesPath: []
+      filesPath: null
     }
   },
   methods: {
@@ -80,12 +80,12 @@ export default {
     },
 
     uploadFile(){
-      const files = Array.from(this.$refs.file_input.files);
-      this.filesPath = files.map((f) => {
-        return URL.createObjectURL(f)
-      });
-      console.log(this.filesPath)
-      this.$emit("files-upload", this.filesPath);
+      const files = this.$refs.file_input.files;
+      if (files.length > 0) {
+        this.filesPath = files[0]
+        console.log(this.filesPath)
+        this.$emit("files-upload", this.filesPath);
+      }
     },
   }
 }

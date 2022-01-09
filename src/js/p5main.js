@@ -6,63 +6,55 @@
 const { Midi } = require("@tonejs/midi");
 
 
+// global variables
 
 let p5;
+let canvas = null;
 let delegate = undefined;
 
-let w;
-let columns;
-let rows;
-let board;
-let next;
 let start_t;
 let current_t_display;
 let debug_log = "";
 // let scale = 1.0;
 
-let canvas = null;
 
 // アスペクト比 は 16:9 固定
+
 
 export function main(_p5) {
   p5 = _p5
 
+  // setup p5
   p5.setup = () => {
     updateCanvasSize(document.body.clientWidth, document.body.clientHeight)
     canvas.parent("p5Canvas");
 
     p5.textSize(24)
 
-    w = 20;
-    // Calculate columns and rows
-    columns = Math.floor(p5.width / w);
-    rows = Math.floor(p5.height / w);
-    // Wacky way to make a 2D array is JS
-    board = new Array(columns);
-    for (let i = 0; i < columns; i++) {
-      board[i] = new Array(rows);
-    }
-    // Going to use multiple 2D arrays and swap them
-    next = new Array(columns);
-    for (let i = 0; i < columns; i++) {
-      next[i] = new Array(rows);
-    }
     init();
 
     start_t = p5.millis();
   }
 
+  // draw ( repeated )
   p5.draw = () => {
     p5.background(255);
-    generate();
-    for ( let i = 0; i < columns;i++) {
-      for ( let j = 0; j < rows;j++) {
-        if ((board[i][j] == 1)) p5.fill(0);
-        else p5.fill(255);
-        p5.stroke(0);
-        p5.rect(i * w, j * w, w-1, w-1);
-      }
-    }
+
+    p5.strokeWeight(20);
+    p5.noFill();
+    let gradientStroke = p5.drawingContext.createLinearGradient(
+      p5.width * 0.1,
+      p5.height * 0.1,
+      p5.width * 0.9,
+      p5.height * 0.9
+    );
+  
+    gradientStroke.addColorStop(0, p5.color(255, 0, 255));
+    gradientStroke.addColorStop(0.5, p5.color(255, 255, 0));
+
+    p5.drawingContext.strokeStyle = gradientStroke;
+
+    p5.rect(0, 0, p5.width, p5.height, 20);
 
     current_t_display = p5.round((p5.millis() - start_t) / 10) / 100
     // p5.fill(0, 209, 178);
@@ -86,46 +78,7 @@ export function main(_p5) {
 
   // Fill board randomly
   function init() {
-    for (let i = 0; i < columns; i++) {
-      for (let j = 0; j < rows; j++) {
-        // Lining the edges with 0s
-        if (i == 0 || j == 0 || i == columns-1 || j == rows-1) board[i][j] = 0;
-        // Filling the rest randomly
-        else board[i][j] = p5.floor(p5.random(2));
-        next[i][j] = 0;
-      }
-    }
-  }
-
-  // The process of creating the new generation
-  function generate() {
-
-    // Loop through every spot in our 2D array and check spots neighbors
-    for (let x = 1; x < columns - 1; x++) {
-      for (let y = 1; y < rows - 1; y++) {
-        // Add up all the states in a 3x3 surrounding grid
-        let neighbors = 0;
-        for (let i = -1; i <= 1; i++) {
-          for (let j = -1; j <= 1; j++) {
-            neighbors += board[x+i][y+j];
-          }
-        }
-
-        // A little trick to subtract the current cell's state since
-        // we added it in the above loop
-        neighbors -= board[x][y];
-        // Rules of Life
-        if      ((board[x][y] == 1) && (neighbors <  2)) next[x][y] = 0;           // Loneliness
-        else if ((board[x][y] == 1) && (neighbors >  3)) next[x][y] = 0;           // Overpopulation
-        else if ((board[x][y] == 0) && (neighbors == 3)) next[x][y] = 1;           // Reproduction
-        else                                             next[x][y] = board[x][y]; // Stasis
-      }
-    }
-
-    // Swap!
-    let temp = board;
-    board = next;
-    next = temp;
+    
   }
 }
 
@@ -144,24 +97,44 @@ export function updateCanvasSize(bodyWidth, bodyHeight) {
 }
 
 export function setDebugLog(str) {
-  console.log(`set debug log '${str}'`)
+  console.log(`set debug log '${str}'`);
   debug_log = str;
 }
 
-
-function parseMidi(url) {
-  Midi.fromUrl(url).then(midi => {
-    return {
-      name: midi.name,
-      tracks: midi.tracks
-    }
-  })
+export function loadMidiData(file) {
+  const data = parseFile(file);
+  console.log("data >>");
+  console.log(data);
+  debug_log = `file: ${file.name}`;
 }
 
-export function loadMidi(file) {
-  alert("hello")
-  const data = parseMidi(file);
-  debug_log = `name: ${data.name},
-  tracks: ${data.tracks}
-  `
+// eslint-disable-next-line no-unused-vars
+let currentMidi = null;
+
+function parseFile(file) {
+  let json;
+  console.log("file >>");
+  console.log(file);
+  //read the file
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const midi = new Midi(e.target.result);
+    console.log("midi >>")
+    console.log(midi);
+    currentMidi = midi;
+    json = JSON.stringify(midi, undefined, 2);
+    console.log("json >>")
+    console.log(json);
+  };
+  reader.readAsArrayBuffer(file);
+  return json; 
 }
+
+// function parseMidi(url) {
+//   Midi.fromUrl(url).then(midi => {
+//     return {
+//       name: midi.name,
+//       tracks: midi.tracks
+//     }
+//   })
+// }

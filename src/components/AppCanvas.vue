@@ -1,7 +1,7 @@
 <template>
-  <div class="container border">
-    <div class="d-flex justify-content-center" id="p5Canvas"></div>
-    <div class="d-flex justify-content-center">
+  <div id="appCanvas">
+    <div id="p5Canvas"></div>
+    <div>
       {{message}} sec ( p5's clock )
     </div>
   </div>
@@ -13,7 +13,6 @@ const p5proc = require('../js/p5main')
 export default {
   props: {
     filesData: {
-     type: Array
     }
   },
   
@@ -42,7 +41,7 @@ export default {
     filesData(newData) {
       this.files = newData;
       p5proc.setDebugLog("[open]" + this.files);
-      p5proc.loadMIdi(this.files);
+      p5proc.loadMidiData(this.files);
     }
   },
 
