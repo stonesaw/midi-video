@@ -1,12 +1,8 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img
-          src="https://bulma.io/images/bulma-logo.png"
-          width="112"
-          height="28"
-        />
+      <a class="navbar-item" href="./">
+        終了
       </a>
 
       <a
@@ -24,10 +20,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <div 
-          id="navbar-dropdown-file"
-          class="navbar-item has-dropdown is-hoverable"
-        >
+        <div class="navbar-item has-dropdown is-hoverable">
           <!-- @click="isActive"
           @blur="isActive" -->
           <a class="navbar-link">
@@ -35,22 +28,28 @@
           </a>
 
           <div class="navbar-dropdown">
-            <div class="navbar-item">
-              <label>
+            <a class="navbar-item">
+              <label class="file-label">
                 インポート
                 <input type="file" ref="file_input" @change="uploadFile">
               </label>
-            </div>
-            <a class="navbar-item"> Jobs </a>
+            </a>
+            <!-- <a class="navbar-item"> Jobs </a>
             <a class="navbar-item"> Contact </a>
             <hr class="navbar-divider" />
-            <a class="navbar-item"> Report an issue </a>
+            <a class="navbar-item"> Report an issue </a> -->
           </div>
         </div>
 
-        <a class="navbar-item"> Home </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"> 編集 </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item"> 元に戻す </a>
+            <a class="navbar-item"> やり直す </a>
+          </div>
+        </div>
 
-        <a class="navbar-item"> Documentation </a>
+        <a class="navbar-item"> 表示 </a>
       </div>
 
       <div class="navbar-end">
