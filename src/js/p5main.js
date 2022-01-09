@@ -2,20 +2,36 @@
 // https://qiita.com/mitsuya_bauhaus/items/b6f3d1aec07a9e07bb3a
 // https://p5js.org/examples/simulate-game-of-life.html
 
+// import { loadMidi } from './midiLoader';
+const { Midi } = require("@tonejs/midi");
+
+
+
 let p5;
+let delegate = undefined;
 
 let w;
 let columns;
 let rows;
 let board;
 let next;
+let start_t;
+let current_t_display;
+let debug_log = "";
+// let scale = 1.0;
+
+let canvas = null;
+
+// アスペクト比 は 16:9 固定
 
 export function main(_p5) {
   p5 = _p5
 
   p5.setup = () => {
-    var canvas = p5.createCanvas(720, 400);
+    updateCanvasSize(document.body.clientWidth, document.body.clientHeight)
     canvas.parent("p5Canvas");
+
+    p5.textSize(24)
 
     w = 20;
     // Calculate columns and rows
@@ -32,6 +48,8 @@ export function main(_p5) {
       next[i] = new Array(rows);
     }
     init();
+
+    start_t = p5.millis();
   }
 
   p5.draw = () => {
@@ -46,6 +64,19 @@ export function main(_p5) {
       }
     }
 
+    current_t_display = p5.round((p5.millis() - start_t) / 10) / 100
+    // p5.fill(0, 209, 178);
+    // p5.text(current_t_display, 100, 100);
+
+    if (debug_log !== "") {
+      p5.fill(0, 209, 178);
+      p5.text(debug_log, 100, 100)
+    }
+
+    // callback
+    if (delegate !== undefined) {
+      delegate(current_t_display);
+    }
   }
 
   // reset board when mouse is pressed
@@ -96,4 +127,41 @@ export function main(_p5) {
     board = next;
     next = temp;
   }
+}
+
+export function setDelegate(_delegate) {
+  delegate = _delegate;
+}
+
+// eslint-disable-next-line no-unused-vars
+export function updateCanvasSize(bodyWidth, bodyHeight) {
+  var w = p5.round(bodyWidth * 0.8);
+  var h = w * 9.0 / 16.0;
+  if (canvas === null) {
+    canvas = p5.createCanvas(w, h);
+  }
+  p5.resizeCanvas(w, h);
+}
+
+export function setDebugLog(str) {
+  console.log(`set debug log '${str}'`)
+  debug_log = str;
+}
+
+
+function parseMidi(url) {
+  Midi.fromUrl(url).then(midi => {
+    return {
+      name: midi.name,
+      tracks: midi.tracks
+    }
+  })
+}
+
+export function loadMidi(file) {
+  alert("hello")
+  const data = parseMidi(file);
+  debug_log = `name: ${data.name},
+  tracks: ${data.tracks}
+  `
 }
