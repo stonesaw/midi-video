@@ -1,29 +1,31 @@
-# midi-video
-**[ 🛠 Working ]**  
-midiファイルから動画を出力するWebサイト
+<div align="center">
+
+# scherzo | スケルツォ
+
+###### [🛠 WIP]　MIDIファイルをいい感じに出力してくれるサイト
 
 
-### 📚 ドキュメント
-[README-EN](./README-en.md)
+### 📚 ドキュメント 
+**[README-EN](./README-en.md)** 
 
 
-### 💡 アイデア
-最近TwitterやYouTubeなどを漁っていと、こんな感じの動画⬇ を見かけます
 
-> <a href="https://twitter.com/Symmez/status/1385926558347526145"><img width="400px" src="https://user-images.githubusercontent.com/50014309/145682238-369d0c16-7022-462e-afe3-e6549202bb3d.png"></img></a>  
-> https://twitter.com/Symmez/status/1385926558347526145
+## 💡 アイデア
+こんな感じの動画が簡単に作れるウェブサイト
 
-これを作るには、[MIDITrail](https://osdn.net/projects/miditrail/) というアプリを使う、もしくは、Aviutlなどの動画編集ソフトで一から自作するという方法があります  
+<a href="https://twitter.com/Symmez/status/1385926558347526145"><img width="400px" src="https://user-images.githubusercontent.com/50014309/145682238-369d0c16-7022-462e-afe3-e6549202bb3d.png"></img></a>  
+https://twitter.com/Symmez/status/1385926558347526145
 
-しかし、僕はWebブラウザで曲を作っているような作曲素人なので...  
-かっこいい動画が**サクッと**作れる**Webサイト**を作りたいと思いました！
+<br>
+
+1\. Webサイトにファイルをドラッグアンドドロップするだけ  
+2\. 　　　　　　　　ダウンロードの必要なし　　　　　　　  
+3\. 　　　　　　色や位置などを好きにいじれる　　　　　　
 
 
-### 💭 イメージ
+</div>
 
-<img width="49%" src="./screenshot/01.svg" /> <img width="49%" src="./screenshot/02.svg" />
-<img width="49%" src="./screenshot/03.svg" />
-
+## 　
 
 ### ✨ 機能
 - [ ] MIDIノートの表示
@@ -32,13 +34,6 @@ midiファイルから動画を出力するWebサイト
 - [ ] 各種SNSに合わせた動画出力
 
 
-### 🤝 感謝！
-🗃 ライブラリ
+### 🙏 Thanks
 - [Tonejs/Midi](https://github.com/Tonejs/Midi)
-- [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)  
 - [processing/p5.js](https://github.com/processing/p5.js)
-
-
-🧪 参考
-- [tetunori/p5MovRec](https://github.com/tetunori/p5MovRec)
-
