@@ -1,12 +1,10 @@
 <div align="center">
 
-# scherzo | スケルツォ
+# [ Scherzo; ](https://stonesaw.github.io/midi-video/)
+[🛠 WIP]　MIDIファイルをいい感じに表示してくれるサイト  
+"スケルツォ" です
 
-###### [🛠 WIP]　MIDIファイルをいい感じに出力してくれるサイト
-
-
-### 📚 ドキュメント 
-**[README-EN](./README-en.md)** 
+📚 | [README-EN](./README-en.md)
 
 
 
