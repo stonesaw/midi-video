@@ -25,7 +25,7 @@ https://twitter.com/Symmez/status/1385926558347526145
 
 </div>
 
-## 　
+<br>
 
 ### ✨ 機能
 - [ ] MIDIノートの表示
