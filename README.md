@@ -1,11 +1,13 @@
 <div align="center">
 
-# <img src="./screenshot/logo.jpg" width="60%" />
+<img src="./screenshot/logo.jpg" width="60%" />
+
+[ 🛠 WIP ]　
 
 https://stonesaw.github.io/midi-video/
 
-[🛠 WIP]　MIDIファイルをいい感じに表示してくれるサイト  
-"スケルツォ" です
+MIDIファイルをいい感じに表示してくれるサイト "スケルツォ"  
+
 
 📚 | [README-EN](./README-en.md)
 
@@ -24,17 +26,19 @@ https://twitter.com/Symmez/status/1385926558347526145
 3\. 　　　　　　色や位置などを好きにいじれる　　　　　　
 
 
-</div>
+
 
 <br>
 
-### ✨ 機能
-- [ ] MIDIノートの表示
-- [ ] 音声波形の表示
-- [ ] 色・表示位置のカスタム
-- [ ] 各種SNSに合わせた動画出力
+## ✨ 機能
+✅ 　　 MIDIノートの表示　　　  
+🏃‍ 　　  音声波形の表示　　　　  
+🏃‍ 　 色・表示位置のカスタム　   
+⛔　各種SNSに合わせた動画出力  
 
 
-### 🙏 Thanks
-- [Tonejs/Midi](https://github.com/Tonejs/Midi)
-- [processing/p5.js](https://github.com/processing/p5.js)
+## 🙏 Thanks
+[Tonejs/Midi](https://github.com/Tonejs/Midi)  
+[processing/p5.js](https://github.com/processing/p5.js)  
+  
+</div>
