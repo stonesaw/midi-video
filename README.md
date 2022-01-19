@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./screenshot/logo.jpg" width="60%" />
+<img src="./screenshot/logo2.jpg" width="60%" />
 
 [ 🛠 WIP ]　
 
