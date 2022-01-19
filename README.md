@@ -1,6 +1,9 @@
 <div align="center">
 
-# [ Scherzo; ](https://stonesaw.github.io/midi-video/)
+# <img src="./screenshot/logo.jpg" width="60%" />
+
+https://stonesaw.github.io/midi-video/
+
 [🛠 WIP]　MIDIファイルをいい感じに表示してくれるサイト  
 "スケルツォ" です
 
